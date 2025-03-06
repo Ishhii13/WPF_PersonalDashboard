@@ -1,0 +1,32 @@
+﻿<Page x:Class="WPF_PersonalDashboard.Pages.Notes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_PersonalDashboard.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Notes">
+    <Page.Resources>
+        <Style x:Key="NotesCardStyle" TargetType="Rectangle">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="650"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="1" Margin="22,50,93,50" Height="350" Background="DarkGray" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="NoteStackPanel" Orientation="Vertical"/>
+        </ScrollViewer>
+
+        <Button x:Name="btn_Add" Click="addBtn_Click" Grid.Column="1" Content="Add" HorizontalAlignment="Left" Margin="562,363,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.785,0.065" Height="37" Width="75"/>
+
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Page>
