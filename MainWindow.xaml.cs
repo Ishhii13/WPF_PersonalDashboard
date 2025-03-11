@@ -22,7 +22,6 @@ namespace WPF_PersonalDashboard
     /// </summary>
     public partial class MainWindow : Window
     {
-        int currentPage;
         public MainWindow()
         {
             InitializeComponent();

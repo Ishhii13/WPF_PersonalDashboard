@@ -130,17 +130,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Notes\" />
     <Folder Include="ToDoList\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GalleryImages\0f1292bb-f4e9-4584-97e1-142a627a80c4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GalleryImages\481965756_1168513977493930_879090247240333395_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="GalleryImages\481385595_1917177882419650_5246988782164269286_n.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FavsImages\01InfiniteCraft.jpg" />
@@ -162,6 +152,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GalleryImages\456446595_716026620692222_8852212267455851986_n.jpg" />
+    <Resource Include="GalleryImages\459404304_1044120213778011_7575974557468144181_n.jpg" />
+    <Resource Include="GalleryImages\462544692_566692049066985_3024261015389435084_n.jpg" />
+    <Resource Include="GalleryImages\467482722_1342495876906778_1435142815495069164_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Notes\1.txt" />
+    <Resource Include="Notes\2.txt" />
+    <Resource Include="Notes\3.txt" />
+    <Resource Include="Notes\4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GalleryImages\454285825_877103554340710_5259491260129609809_n.jpg" />
+    <Resource Include="GalleryImages\454437459_989475226195291_3335520266096657689_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GalleryImages\467208071_1337174223939213_6425431432780688471_n.jpg" />
+    <Resource Include="GalleryImages\472786810_980563744009991_7957217605495761839_n.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

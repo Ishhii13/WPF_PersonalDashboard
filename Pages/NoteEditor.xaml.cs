@@ -42,24 +42,16 @@ namespace WPF_PersonalDashboard.Pages
                 return;
             }
 
-            try
+            using (StreamWriter sw = new StreamWriter(currentFilePath, false))
             {
-                using (StreamWriter sw = new StreamWriter(currentFilePath, false))
-                {
-                    sw.WriteLine(title); // First line is the title
-                    sw.WriteLine(note);  // Second line is the content
-                }
-
-                TitleTextBox.Clear();
-                NoteTextBox.Clear();
-
-                // Navigate back to Notes
-                MainFrame.Navigate(new Notes());
+                sw.WriteLine(title); //title
+                sw.WriteLine(note);  //content
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving note: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
+            TitleTextBox.Clear();
+            NoteTextBox.Clear();
+
+            MainFrame.Navigate(new Notes());
         }
 
         public NoteEditor(string filePath) : this()
@@ -75,8 +67,8 @@ namespace WPF_PersonalDashboard.Pages
                 try
                 {
                     string[] lines = File.ReadAllLines(filePath);
-                    TitleTextBox.Text = lines.Length > 0 ? lines[0] : ""; // First line is the title
-                    NoteTextBox.Text = lines.Length > 1 ? string.Join("\n", lines.Skip(1)) : ""; // Second line is the content
+                    TitleTextBox.Text = lines.Length > 0 ? lines[0] : "";
+                    NoteTextBox.Text = lines.Length > 1 ? string.Join("\n", lines.Skip(1)) : "";
                 }
                 catch (Exception ex)
                 {
@@ -85,19 +77,25 @@ namespace WPF_PersonalDashboard.Pages
             }
         }
 
-        private string GenerateNewFilePath()
+        private string GenerateNewFilePath() //CHANGE THIS LATER AAAAAAAAAAA
         {
             int num = 1;
             string filePath;
 
-            // Find the next available numbered filename
             do
             {
                 filePath = System.IO.Path.Combine(notesFolder, $"{num}.txt");
                 num++;
             } while (File.Exists(filePath));
 
-            return filePath;
+            while (File.Exists(filePath))
+            {
+                num++;
+            }
+
+            filePath = System.IO.Path.Combine(notesFolder, $"{num}.txt");
+
+                return filePath;
         }
     }
 }

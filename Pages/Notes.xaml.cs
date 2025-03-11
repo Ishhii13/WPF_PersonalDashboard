@@ -40,6 +40,8 @@ namespace WPF_PersonalDashboard.Pages
 
             string[] noteFiles = Directory.GetFiles(notesFolder, "*.txt");
 
+            List<Border> borderList = new List<Border>();
+
             foreach (string file in noteFiles)
             {
                 string title = "Untitled";
@@ -87,7 +89,14 @@ namespace WPF_PersonalDashboard.Pages
 
                 noteBorder.MouseLeftButtonDown += (s, e) => OpenNote(file);
 
-                NoteStackPanel.Children.Add(noteBorder);
+                borderList.Add(noteBorder);
+            }
+
+            borderList.Reverse();
+
+            foreach (Border border in borderList)
+            {
+                NoteStackPanel.Children.Add(border);
             }
         }
 

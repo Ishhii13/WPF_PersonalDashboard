@@ -14,7 +14,7 @@
             <ColumnDefinition Width="650"/>
         </Grid.ColumnDefinitions>
 
-        <Viewbox Stretch="Uniform" Margin="10,110,300,22" Grid.Column="1">
+        <Viewbox Stretch="Uniform" Margin="10,63,300,70" Grid.Column="1">
             <Calendar x:Name="cal_ToDoCal"
               Background="White"
               Foreground="Black"
