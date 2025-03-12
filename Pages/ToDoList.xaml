@@ -23,17 +23,17 @@
 
         <Border Grid.Column="1" Background="AliceBlue" Margin="355,37,3,295" BorderBrush="Black" BorderThickness="2">
             <TextBox x:Name="tbx_NewTask" Margin="8,47,0,47" HorizontalAlignment="Left" Height="20" Width="178"/>
-
         </Border>
 
         <Border Grid.Column="1" HorizontalAlignment="Left" Margin="355,160,0,25" Width="292"
                 BorderBrush="Black" BorderThickness="2" Background="LightSteelBlue">
-            <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="ToDoListPanel"/>
+            <ScrollViewer Height="200" VerticalScrollBarVisibility="Auto" Margin="0,48,0,13">
+                <StackPanel x:Name="ToDoListPanel" Height="164"/>
             </ScrollViewer>
         </Border>
 
         <Button Content="Add" Width="80" Height="30" Margin="560,81,10,339" Click="btn_Add_Click" Grid.Column="1"/>
         <Label Grid.Column="1" Content="Add New Task:" HorizontalAlignment="Left" Margin="366,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.637"/>
+        <Label Grid.Column="1" Content="Tasks:" HorizontalAlignment="Left" Margin="366,177,0,0" VerticalAlignment="Top" FontSize="20"/>
     </Grid>
 </Page>

@@ -31,7 +31,7 @@ namespace WPF_PersonalDashboard.Pages
             currentFilePath = GenerateNewFilePath();
         }
 
-        private void AddNote_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             string title = TitleTextBox.Text;
             string note = NoteTextBox.Text;
@@ -62,19 +62,9 @@ namespace WPF_PersonalDashboard.Pages
 
         private void LoadNote(string filePath)
         {
-            if (File.Exists(filePath))
-            {
-                try
-                {
-                    string[] lines = File.ReadAllLines(filePath);
-                    TitleTextBox.Text = lines.Length > 0 ? lines[0] : "";
-                    NoteTextBox.Text = lines.Length > 1 ? string.Join("\n", lines.Skip(1)) : "";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error loading note: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
+            string[] lines = File.ReadAllLines(filePath);
+            TitleTextBox.Text = lines[0];
+            NoteTextBox.Text = string.Join("\n", lines.Skip(1));
         }
 
         private string GenerateNewFilePath() //CHANGE THIS LATER AAAAAAAAAAA
@@ -86,16 +76,10 @@ namespace WPF_PersonalDashboard.Pages
             {
                 filePath = System.IO.Path.Combine(notesFolder, $"{num}.txt");
                 num++;
-            } while (File.Exists(filePath));
-
-            while (File.Exists(filePath))
-            {
-                num++;
             }
+            while (File.Exists(filePath));
 
-            filePath = System.IO.Path.Combine(notesFolder, $"{num}.txt");
-
-                return filePath;
+            return filePath;
         }
     }
 }

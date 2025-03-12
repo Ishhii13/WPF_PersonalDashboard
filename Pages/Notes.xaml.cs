@@ -38,20 +38,19 @@ namespace WPF_PersonalDashboard.Pages
         {
             NoteStackPanel.Children.Clear();
 
-            string[] noteFiles = Directory.GetFiles(notesFolder, "*.txt");
+            //string[] noteFiles = Directory.GetFiles(notesFolder, "*.txt");
+
+            string[] noteFiles = Directory.GetFiles(notesFolder, "*.txt")
+                                  .OrderByDescending(File.GetLastWriteTime)
+                                  .ToArray();
 
             List<Border> borderList = new List<Border>();
 
             foreach (string file in noteFiles)
             {
-                string title = "Untitled";
-                string preview = "";
-
                 string[] lines = File.ReadAllLines(file);
-                if (lines.Length > 0)
-                    title = lines[0];
-                if (lines.Length > 1)
-                    preview = lines[1];
+                string title = lines[0];
+                string preview = lines[1];
 
                 Border noteBorder = new Border
                 {
@@ -92,12 +91,10 @@ namespace WPF_PersonalDashboard.Pages
                 borderList.Add(noteBorder);
             }
 
-            borderList.Reverse();
+            //borderList.Reverse();
 
             foreach (Border border in borderList)
-            {
                 NoteStackPanel.Children.Add(border);
-            }
         }
 
         private void OpenNote(string filePath)
